@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <title>pomodoro</title>
+        <style>
+            #container {
+                height: 10%;
+                width: 50%;
+                background-color: black;
+                transform: translate(45%,200%);
+                color: white;
+                font-size: 65%;
+            }
+            
+            #propagator {
+                animation: progress-animation 1500s forwards ;
+                position: absolute;
+                height: 70%;
+                background-color:white;
+            }
+            #propagator_two {
+                animation: progress-animation 300s forwards ;
+                position: absolute;
+                height: 70%;
+                background-color:white;
+            }
+
+            
+            @keyframes progress-animation {
+                0% {width: 0%;}
+                100% {width: 100%;}                
+            }
+            #ST{
+                height: 10%;
+                background-color: rgb(80, 1, 80);
+                color: white;
+                width: 25%;
+            }
+            #RT{
+                height: 10%;
+                background-color: rgb(16, 39, 70);
+                color: white;
+                width: 25%;
+            }
+            #RT,#ST {
+                transform: translate(45%,250%);
+                transition: background-color 1s;
+            }
+            #progress_bar {
+                color: white;
+                font-size: 20%;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            #role {
+                transform: translate(45%,500%);
+                width: 50%;
+                background-color: rgb(0, 0, 0);
+                display: inline-block;
+                text-align: center;
+                color: rgb(240, 240, 240);
+            }
+            #timer {
+                background-color: black;
+                color: white;
+                display: inline-block;
+            transform:translate(400%,-200%) ;
+        }
+
+
+        </style>
+    </head>
+    <body>
+        <h1 style="TEXT-ALIGN:CENTER">POMODORO</h1>
+        <div id="role">hello</div>
+        <div id="container">
+            IT IS IMPORTANT TO BALANCE TIME BETWEEN STUDYING AND RELAXING. HENCE PSYCHOLOGISTS CAME UP WITH AN IDEAL BALANCE , AND NAMED IT POMODORO TECHNIQUE.
+            IN THIS TECHNIQUE , YOU WILL STUDY FOR 25 MINS AND REST FOR 5 MINS. OTHER VARIATIONS SUCH AS 50 MINS+10 MINS IS ALSO USEFUL ESPECIALLY WHEN YOU ARE WRITING ASSIGNMENTS 
+            <div id="progress_bar">
+
+            </div>
+        </div>
+        <div id="timer">
+            START STUDYING 
+        </div>
+        <button onclick="start_study_timer();study_time();study_timer()" id="ST">STUDY TIME</button>
+        <button onclick="start_short_rest_timer();short_break_timer();break_time()" id="RT">REST FOR SHORT TIME</button>
+        <audio src="file:///C:/Users/india/Downloads/Kevin_MacLeod_-_Canon_in_D_Major.mp3" id="calm">the rest audio</audio>
+        <audio src="file:///C:/Users/india/Downloads/An-Epic-Story.mp3" id="modivashunal">the study audio</audio>
+        <script>
+            function start_study_timer() {
+                setTimeout(function(){
+                var y=document.getElementById('calm')
+                y.play()},1500000
+                )
+                const ST=document.getElementById('progress_bar');
+                ST.setAttribute('id','propagator')
+                console.log("sri rama jayam")
+                document.getElementById('ST').style.transform="translate(75%,250%)"
+                document.getElementById('RT').style.transform="translate(75%,250%)"
+                document.getElementById('timer').style.transform="translate(1500%,-300%)"
+
+            }
+
+            function start_short_rest_timer() {
+                setTimeout(function(){
+                var y=document.getElementById('modivashunal')
+                y.play()},300000
+                )
+                const ST=document.getElementById('progress_bar');
+                ST.setAttribute('id','propagator_two')
+                console.log("sri rama jayam")
+                document.getElementById('ST').style.transform="translate(75%,250%)"
+                document.getElementById('RT').style.transform="translate(75%,250%)"
+                document.getElementById('timer').style.transform="translate(2000%,-300%)"
+                
+            }
+            function study_time(){
+                document.getElementById('role').innerHTML="STUDY TIME."+"<br>"+"USE THIS TIME TO YOUR BEST EXTENT. VERY CRUCIAL IT IS. GIVE YOUR BEST.YOU CAN DO IT.LIKE IT OR NOT , THIS IS DO OR DIE. JUST DO IT "
+                document.getElementById('role').style.transform="translate(45%,20%)";
+            }
+            function break_time(){
+                document.getElementById('role').innerHTML="ENJOY THE REST";
+                document.getElementById('role').style.transform="translate(45%,20%)";
+            }
+            function study_timer() {
+                var a=new Date().getTime();
+            var b=a+1500;
+            function setting_up_a_timer() {
+                for(i=1;i<=1;i++){
+                a=a+1;
+                console.log(b-a)
+                var c=(b-a)%60
+                
+                var d=Math.floor((b-a)/60)
+                if(c>10){
+                document.getElementById('timer').innerHTML=d+':'+c;}
+                if(c<10){
+                    document.getElementById('timer').innerHTML=d+":0"+c;
+                
+                }
+            }
+        }
+
+            setInterval(setting_up_a_timer,1000)
+
+            }
+            function short_break_timer() {
+                var a=new Date().getTime();
+            var b=a+300;
+            function setting_up_a_timer() {
+                for(i=1;i<=1;i++){
+                a=a+1;
+                console.log(b-a)
+                var c=(b-a)%60
+                
+                var d=Math.floor((b-a)/60)
+                if(c>10){
+                document.getElementById('timer').innerHTML=d+':'+c;}
+                if(c<10){
+                    document.getElementById('timer').innerHTML=d+":0"+c;
+                }
+            }
+        }
+
+            setInterval(setting_up_a_timer,1000)
+            }
+
+
+            
+
+        </script>
+    </body>
+</html>
